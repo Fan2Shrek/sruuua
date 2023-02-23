@@ -1,0 +1,9 @@
+loader:
+  class: Twig_Loader_Filesystem
+  arg:
+    - "./templates"
+
+twig:
+  class: Twig_Environment
+  arg:
+    - "@loader"
