@@ -1,9 +1,20 @@
 loader:
-  class: Twig_Loader_Filesystem
+  class: \Twig\Loader\FilesystemLoader
   arg:
     - "./templates"
 
 twig:
-  class: Twig_Environment
+  class: Twig\Environment
   arg:
     - "@loader"
+
+controller.main:
+  class: App\Controller\MainController
+  arg:
+    - '@twig'
+
+router:
+  class: Sruuua\Routing\RouterBuilder
+  func:
+    - registerController:
+        - controller.main

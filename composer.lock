@@ -45,16 +45,16 @@
         },
         {
             "name": "sruuua/routing",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fan2Shrek/Routing.git",
-                "reference": "3ebd94d51a85dd008c3bfdf5d4ec205b72f4e6b5"
+                "reference": "0596646b46f50f7e6a3fe89139db276a01b4320f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fan2Shrek/Routing/zipball/3ebd94d51a85dd008c3bfdf5d4ec205b72f4e6b5",
-                "reference": "3ebd94d51a85dd008c3bfdf5d4ec205b72f4e6b5",
+                "url": "https://api.github.com/repos/Fan2Shrek/Routing/zipball/0596646b46f50f7e6a3fe89139db276a01b4320f",
+                "reference": "0596646b46f50f7e6a3fe89139db276a01b4320f",
                 "shasum": ""
             },
             "require": {
@@ -76,9 +76,9 @@
             "description": "Easy routing for controller",
             "support": {
                 "issues": "https://github.com/Fan2Shrek/Routing/issues",
-                "source": "https://github.com/Fan2Shrek/Routing/tree/1.1.0"
+                "source": "https://github.com/Fan2Shrek/Routing/tree/1.2.0"
             },
-            "time": "2023-02-23T21:51:46+00:00"
+            "time": "2023-02-24T08:01:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
