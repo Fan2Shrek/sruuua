@@ -1,0 +1,4 @@
+loader:
+  class: \Twig\Loader\FilesystemLoader
+  arg:
+    - ",/templates"

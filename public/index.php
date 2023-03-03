@@ -2,7 +2,14 @@
 
 require 'vendor/autoload.php';
 
-use App\Kernel;
+use Sruuua\DependencyInjection\Injector;
 
-$kernel = new Kernel();
-$kernel->handle();
+function dd($var)
+{
+    var_dump($var);
+    die();
+}
+
+$injector = new Injector();
+
+echo $injector->instance('App\Controller\MainController');
