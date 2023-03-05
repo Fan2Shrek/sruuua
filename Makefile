@@ -12,11 +12,13 @@ start:
 
 run:
 	@printf "\033[32;49m *** Starting PHP Server *** \033[39m\n"
-	@$(php) -S 127.0.0.1:$(PHP_PORT)
+	@$(php) -S 127.0.0.1:$(PHP_PORT) -t public
 .PHONY: run
 
 DATABASE_CREATE_COMMAND ?= $(mysql) -e "CREATE DATABASE IF NOT EXISTS \`$(DB_NAME)\`;"
 database:
-	@printf "033[32;49m *** Creating database *** \033[39m\n"
+	@printf "\033[32;49m *** Creating database *** \033[39m\n"
 	@$(DATABASE_CREATE_COMMAND)
 .PHONY: database
+
+set-up: database start run

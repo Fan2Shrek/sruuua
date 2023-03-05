@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "771100dd5a0917062ef3b3e1b5ea33d4",
+    "content-hash": "defaf713845273ee72b002deb0a50f91",
     "packages": [
         {
             "name": "sruuua/dependency-injection",
-            "version": "1.2.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fan2Shrek/DependencyInjection.git",
-                "reference": "67851dbf6568ff6d101afc77a5eb262f3ff097a6"
+                "reference": "82dfa0c2cee355949f672622c1c8743b46094172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fan2Shrek/DependencyInjection/zipball/67851dbf6568ff6d101afc77a5eb262f3ff097a6",
-                "reference": "67851dbf6568ff6d101afc77a5eb262f3ff097a6",
+                "url": "https://api.github.com/repos/Fan2Shrek/DependencyInjection/zipball/82dfa0c2cee355949f672622c1c8743b46094172",
+                "reference": "82dfa0c2cee355949f672622c1c8743b46094172",
                 "shasum": ""
             },
             "require": {
@@ -39,26 +39,26 @@
             "description": "Easy dependency injection for builing dependency",
             "support": {
                 "issues": "https://github.com/Fan2Shrek/DependencyInjection/issues",
-                "source": "https://github.com/Fan2Shrek/DependencyInjection/tree/1.2.1"
+                "source": "https://github.com/Fan2Shrek/DependencyInjection/tree/2.0.0"
             },
-            "time": "2023-02-23T21:32:34+00:00"
+            "time": "2023-03-05T10:42:32+00:00"
         },
         {
             "name": "sruuua/routing",
-            "version": "1.2.0",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fan2Shrek/Routing.git",
-                "reference": "0596646b46f50f7e6a3fe89139db276a01b4320f"
+                "reference": "9f8ca2147c0fa9221027f3990e8ceb31d2841510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fan2Shrek/Routing/zipball/0596646b46f50f7e6a3fe89139db276a01b4320f",
-                "reference": "0596646b46f50f7e6a3fe89139db276a01b4320f",
+                "url": "https://api.github.com/repos/Fan2Shrek/Routing/zipball/9f8ca2147c0fa9221027f3990e8ceb31d2841510",
+                "reference": "9f8ca2147c0fa9221027f3990e8ceb31d2841510",
                 "shasum": ""
             },
             "require": {
-                "sruuua/dependency-injection": "^1.2"
+                "sruuua/dependency-injection": "^2.0"
             },
             "type": "library",
             "autoload": {
@@ -76,9 +76,83 @@
             "description": "Easy routing for controller",
             "support": {
                 "issues": "https://github.com/Fan2Shrek/Routing/issues",
-                "source": "https://github.com/Fan2Shrek/Routing/tree/1.2.0"
+                "source": "https://github.com/Fan2Shrek/Routing/tree/1.3.2"
             },
-            "time": "2023-02-24T08:01:44+00:00"
+            "time": "2023-03-05T11:59:38+00:00"
+        },
+        {
+            "name": "symfony/dotenv",
+            "version": "v6.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "f2b09b7ee21458779df000bd24020b6e9955b393"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/f2b09b7ee21458779df000bd24020b6e9955b393",
+                "reference": "f2b09b7ee21458779df000bd24020b6e9955b393",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "conflict": {
+                "symfony/console": "<5.4",
+                "symfony/process": "<5.4"
+            },
+            "require-dev": {
+                "symfony/console": "^5.4|^6.0",
+                "symfony/process": "^5.4|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/dotenv/tree/v6.2.7"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-02-14T08:44:56+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -247,16 +321,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v6.2.5",
+            "version": "v6.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "2bbfbdacc8a15574f8440c4838ce0d7bb6c86b19"
+                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/2bbfbdacc8a15574f8440c4838ce0d7bb6c86b19",
-                "reference": "2bbfbdacc8a15574f8440c4838ce0d7bb6c86b19",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e8e6a1d59e050525f27a1f530aa9703423cb7f57",
+                "reference": "e8e6a1d59e050525f27a1f530aa9703423cb7f57",
                 "shasum": ""
             },
             "require": {
@@ -301,7 +375,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.2.5"
+                "source": "https://github.com/symfony/yaml/tree/v6.2.7"
             },
             "funding": [
                 {
@@ -317,7 +391,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-10T18:53:53+00:00"
+            "time": "2023-02-16T09:57:23+00:00"
         },
         {
             "name": "twig/twig",

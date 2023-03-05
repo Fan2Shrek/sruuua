@@ -1,15 +1,16 @@
 <?php
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
-use Sruuua\DependencyInjection\Injector;
+use App\Kernel;
 
 function dd($var)
 {
+    echo '<pre>';
     var_dump($var);
+    echo '</pre>';
     die();
 }
 
-$injector = new Injector();
-
-echo $injector->instance('App\Controller\MainController');
+$kernel = new Kernel();
+$kernel->handle();

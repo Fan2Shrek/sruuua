@@ -1,0 +1,20 @@
+excludes:
+  - '../src/Kernel.php'
+  - '../src/Entity/'
+
+services:
+  loader:
+    class: \Twig\Loader\FilesystemLoader
+    arg:
+      - "../templates"
+
+  Twig\Environment:
+    class: Twig\Environment
+    arg:
+      - "@loader"
+
+  router:
+    class: Sruuua\Routing\RouterBuilder
+    arg:  
+      - '@container'
+    
