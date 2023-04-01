@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "defaf713845273ee72b002deb0a50f91",
+    "content-hash": "5b6108de8525f526981496f2187d7436",
     "packages": [
+        {
+            "name": "sruuua/cache",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Fan2Shrek/Cache.git",
+                "reference": "ecdef2d745a4548638b94b9f03a613078225c339"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Fan2Shrek/Cache/zipball/ecdef2d745a4548638b94b9f03a613078225c339",
+                "reference": "ecdef2d745a4548638b94b9f03a613078225c339",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sruuua\\Cache\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fan2Shrek",
+                    "email": "pierre27.ambroise@gmail.com"
+                }
+            ],
+            "description": "Cache system for sruuua",
+            "support": {
+                "issues": "https://github.com/Fan2Shrek/Cache/issues",
+                "source": "https://github.com/Fan2Shrek/Cache/tree/1.0.6"
+            },
+            "time": "2023-03-22T17:15:20+00:00"
+        },
         {
             "name": "sruuua/dependency-injection",
             "version": "2.0.0",

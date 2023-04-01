@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Sruuua\Cache\Cache;
+use Sruuua\Cache\CachePool;
+use Sruuua\Cache\CacheBuilder;
 use Sruuua\DependencyInjection\Container;
 use Sruuua\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Dotenv\Dotenv;
@@ -24,7 +27,19 @@ class Kernel
         $dotenv->load('../.env');
 
         $this->env = $_ENV;
-        $this->container = (new ContainerBuilder($this))->getContainer();
+
+        # Cache check
+        if (!is_dir(CachePool::getDirectory())) {
+            $this->container = (new ContainerBuilder($this))->getContainer();
+
+            $cachePool = new CachePool();
+
+            $cachePool->save(new Cache('container', $this->container));
+        } else {
+            $cachePool = CacheBuilder::buildFromFiles();
+            $this->container = $cachePool->getItem('container')->get();
+        }
+        $this->container->set('App\Cache\CachePool', $cachePool);
     }
 
     public function handle()
