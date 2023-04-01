@@ -7,6 +7,8 @@ use Sruuua\Cache\CachePool;
 use Sruuua\Cache\CacheBuilder;
 use Sruuua\DependencyInjection\Container;
 use Sruuua\DependencyInjection\ContainerBuilder;
+use Sruuua\HTTPBasics\Request;
+use Sruuua\HTTPBasics\Response\Response;
 use Symfony\Component\Dotenv\Dotenv;
 
 class Kernel
@@ -42,13 +44,17 @@ class Kernel
         $this->container->set('App\Cache\CachePool', $cachePool);
     }
 
-    public function handle()
+    public function handle(Request $request)
     {
-        $request = $_SERVER['REQUEST_URI'];
-        $page = $this->container->get('router')->getRouter()->getRoute($request);
+        $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
 
-        $func = $page->getFunction()->getName();
-        $page->getController()->$func();
+        if (null !== $page) {
+            $func = $page->getFunction()->getName();
+            $page->getController()->$func();
+        } else {
+            $resp = new Response(404, 'Page was not found :(');
+            $resp->response();
+        }
     }
 
     /**

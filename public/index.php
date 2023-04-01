@@ -3,6 +3,7 @@
 require '../vendor/autoload.php';
 
 use App\Kernel;
+use Sruuua\HTTPBasics\Request;
 
 function dd($var)
 {
@@ -12,5 +13,6 @@ function dd($var)
     die();
 }
 
+$req = Request::getRequest();
 $kernel = new Kernel();
-$kernel->handle();
+$kernel->handle($req);

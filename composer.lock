@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b6108de8525f526981496f2187d7436",
+    "content-hash": "8ab080304515836cb857c3e87dc6d1b4",
     "packages": [
         {
             "name": "sruuua/cache",
@@ -76,6 +76,40 @@
                 "source": "https://github.com/Fan2Shrek/DependencyInjection/tree/2.1.0"
             },
             "time": "2023-03-16T19:12:13+00:00"
+        },
+        {
+            "name": "sruuua/http-basics",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Fan2Shrek/HttpBasics.git",
+                "reference": "3bf00f1b24b26ac2339c0932f4360fcc1ed38282"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Fan2Shrek/HttpBasics/zipball/3bf00f1b24b26ac2339c0932f4360fcc1ed38282",
+                "reference": "3bf00f1b24b26ac2339c0932f4360fcc1ed38282",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sruuua\\HTTPBasics\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fan2Shrek",
+                    "email": "pierre27.ambroise@gmail.com"
+                }
+            ],
+            "description": "Basic components for http requests",
+            "support": {
+                "issues": "https://github.com/Fan2Shrek/HttpBasics/issues",
+                "source": "https://github.com/Fan2Shrek/HttpBasics/tree/1.0.0"
+            },
+            "time": "2023-04-01T17:45:00+00:00"
         },
         {
             "name": "sruuua/routing",
