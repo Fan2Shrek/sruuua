@@ -46,11 +46,15 @@ class Kernel
 
     public function handle(Request $request)
     {
+        $this->container->set('Sruuua\HTTPBasics\Request', $request);
         $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
 
         if (null !== $page) {
             $func = $page->getFunction()->getName();
-            $page->getController()->$func();
+            $page->getController()->$func(...array_map(
+                fn ($opt) => $this->container->get($opt->getName()),
+                $page->getOptions()
+            ));
         } else {
             $resp = new Response(404, 'Page was not found :(');
             $resp->response();
