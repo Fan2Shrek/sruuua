@@ -1,5 +1,4 @@
 To do :
 
-[ ] request object  
-[-] database connection object  
-[ ] cache
+[ ] Can create command form everywhere
+[ ] File handle ?
