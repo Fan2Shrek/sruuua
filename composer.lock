@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ab080304515836cb857c3e87dc6d1b4",
+    "content-hash": "8de46c639e06823fa5b4e9d4758973c3",
     "packages": [
+        {
+            "name": "sruuua/application",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Fan2Shrek/application.git",
+                "reference": "7f9f565c66bd079672e793e64de1ecd5c67a9a5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Fan2Shrek/application/zipball/7f9f565c66bd079672e793e64de1ecd5c67a9a5b",
+                "reference": "7f9f565c66bd079672e793e64de1ecd5c67a9a5b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sruuua\\Application\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Fan2Shrek",
+                    "email": "pierre27.ambroise@gmail.com"
+                }
+            ],
+            "description": "Easy console application for sruuua framework",
+            "support": {
+                "issues": "https://github.com/Fan2Shrek/application/issues",
+                "source": "https://github.com/Fan2Shrek/application/tree/1.0.2"
+            },
+            "time": "2023-04-07T11:28:38+00:00"
+        },
         {
             "name": "sruuua/cache",
             "version": "1.0.6",
@@ -79,16 +113,16 @@
         },
         {
             "name": "sruuua/http-basics",
-            "version": "1.0.0",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fan2Shrek/HttpBasics.git",
-                "reference": "3bf00f1b24b26ac2339c0932f4360fcc1ed38282"
+                "reference": "34b8d3c71879957f1ed95dbe92408393b36c8c07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fan2Shrek/HttpBasics/zipball/3bf00f1b24b26ac2339c0932f4360fcc1ed38282",
-                "reference": "3bf00f1b24b26ac2339c0932f4360fcc1ed38282",
+                "url": "https://api.github.com/repos/Fan2Shrek/HttpBasics/zipball/34b8d3c71879957f1ed95dbe92408393b36c8c07",
+                "reference": "34b8d3c71879957f1ed95dbe92408393b36c8c07",
                 "shasum": ""
             },
             "type": "library",
@@ -107,9 +141,9 @@
             "description": "Basic components for http requests",
             "support": {
                 "issues": "https://github.com/Fan2Shrek/HttpBasics/issues",
-                "source": "https://github.com/Fan2Shrek/HttpBasics/tree/1.0.0"
+                "source": "https://github.com/Fan2Shrek/HttpBasics/tree/1.0.4"
             },
-            "time": "2023-04-01T17:45:00+00:00"
+            "time": "2023-04-02T17:26:41+00:00"
         },
         {
             "name": "sruuua/routing",

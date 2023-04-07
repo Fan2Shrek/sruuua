@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once 'vendor/autoload.php';
+
+use Sruuua\Application\Application;
+
+$app = new Application($_SERVER['argv']);
+$app->execute();
