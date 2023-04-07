@@ -1,4 +1,26 @@
-To do :
+# Sruuua framework
 
-[ ] Can create command form everywhere
-[ ] File handle ?
+## Welcome to sruuua framework
+
+### How to setup the framework ?
+
+<br>
+Simply run :
+
+```bash
+git clone git@github.com:Fan2Shrek/framework-skeleton.git
+```
+
+And then
+
+```bash
+php sruuua init
+```
+
+Run the server with
+
+```bash
+php sruuua start
+```
+
+Thank you for using sruuua
