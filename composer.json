@@ -3,7 +3,7 @@
         "sruuua/routing": "^1.3",
         "twig/twig": "^3.5",
         "symfony/dotenv": "^6.2",
-        "sruuua/cache": "^1.0",
+        "sruuua/cache": "^1.2",
         "sruuua/http-basics": "^1.0",
         "sruuua/application": "^1.0.1"
     },

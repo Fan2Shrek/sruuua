@@ -31,22 +31,20 @@ class Kernel
         $this->env = $_ENV;
 
         # Cache check
-        if (!is_dir(CachePool::getDirectory())) {
-            $this->container = (new ContainerBuilder($this))->getContainer();
+        $cachePool = CacheBuilder::buildFromFiles();
 
-            $cachePool = new CachePool();
-
-            $cachePool->save(new Cache('container', $this->container));
-        } else {
-            $cachePool = CacheBuilder::buildFromFiles();
+        if ($cachePool->hasItem('container')) {
             $this->container = $cachePool->getItem('container')->get();
+        } else {
+            $this->container = (new ContainerBuilder($this))->getContainer();
+            $cachePool->save(new Cache('container', $this->container));
         }
-        $this->container->set('App\Cache\CachePool', $cachePool);
+        $this->container->set('cachePool', $cachePool);
     }
 
     public function handle(Request $request)
     {
-        $this->container->set('Sruuua\HTTPBasics\Request', $request);
+        $this->container->set('request', $request);
         $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
 
         if (null !== $page) {

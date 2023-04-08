@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Trait\TwigTrait;
-use Sruuua\HTTPBasics\Request;
 use Sruuua\Routing\Interface\ControllerInterface;
 use Sruuua\Routing\Route;
 use Twig\Environment;
