@@ -14,7 +14,7 @@ git clone git@github.com:Fan2Shrek/framework-skeleton.git
 And then
 
 ```bash
-php sruuua init
+composer install
 ```
 
 Run the server with
