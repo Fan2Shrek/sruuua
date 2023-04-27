@@ -13,6 +13,13 @@ function dd($var)
     die();
 }
 
+function dc($var)
+{
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
+
 $req = Request::getRequest();
 $kernel = new Kernel();
 $kernel->handle($req);
