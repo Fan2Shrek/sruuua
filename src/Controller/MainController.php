@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
 use App\Trait\TwigTrait;
 use Sruuua\Routing\Interface\ControllerInterface;
 use Sruuua\Routing\Route;
@@ -12,18 +11,14 @@ class MainController implements ControllerInterface
 {
     use TwigTrait;
 
-    private UserRepository $userRepository;
-
-    public function __construct(Environment $twig, UserRepository $userRepository)
+    public function __construct(Environment $twig)
     {
         $this->twig = $twig;
-        $this->userRepository = $userRepository;
     }
 
     #[Route('/')]
     public function index()
     {
-        dd($this->userRepository->getAll());
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);
     }
 }

@@ -1,8 +1,6 @@
 excludes:
   - '../src/Kernel.php'
   - '../src/Entity/'
-  - '../src/Database/CARE.md'
-  - '../src/Database/Provider/AbstractProvider.php'
 
 services:
   loader:
