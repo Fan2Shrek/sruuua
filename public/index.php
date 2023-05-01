@@ -4,6 +4,7 @@ require '../vendor/autoload.php';
 
 use App\Kernel;
 use Sruuua\HTTPBasics\Request;
+use App\Error\ErrorHandler;
 
 function dd($var)
 {
@@ -19,6 +20,9 @@ function dc($var)
     var_dump($var);
     echo '</pre>';
 }
+
+ErrorHandler::initialize();
+throw new Exception('zebi');
 
 $req = Request::getRequest();
 $kernel = new Kernel();

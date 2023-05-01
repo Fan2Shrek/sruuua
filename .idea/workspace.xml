@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3fff2685-4bdb-4a4f-aeae-586debd04972" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Error/ErrorHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -30,6 +33,10 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/sruuua/routing" />
       <path value="$PROJECT_DIR$/vendor/sruuua/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/sruuua/application" />
+      <path value="$PROJECT_DIR$/vendor/sruuua/cache" />
+      <path value="$PROJECT_DIR$/vendor/sruuua/http-basics" />
+      <path value="$PROJECT_DIR$/vendor/sruuua/database" />
     </include_path>
   </component>
   <component name="ProjectId" id="2N13KfKD8OZsZMIJdyzqpE7ROLO" />
@@ -43,6 +50,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/Code/personal_pkg/frameworkSke",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -55,6 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1678817698857</updated>
       <workItem from="1678817699966" duration="207000" />
+      <workItem from="1682973436785" duration="739000" />
     </task>
     <servers />
   </component>
