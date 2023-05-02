@@ -1,8 +1,8 @@
-*{
+* {
     margin: 0;
 }
 
-#header{
+#header {
     height: 150px;
     background-color: rgb(151, 0, 0);
     color: white;
@@ -11,37 +11,41 @@
     justify-content: center;
 }
 
-#trace-container{
+#trace-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-h3{
+h3 {
     font-size: 30px;
     margin-block: 10px;
 }
 
-table{
+h2 {
+    font-size: 50px;
+}
+
+table {
     border: 1px black solid;
     table-layout: fixed;
     border-collapse: collapse;
 }
 
-th{
+th {
     letter-spacing: 2px;
     height: 27px;
     border: 1px solid black;
 }
 
-tr, td{
+tr,
+td {
     border: 1px solid black;
     height: 20px;
-    padding:7px 25px;
+    padding: 7px 25px;
 }
-  
-tbody td{
+
+tbody td {
     text-align: center;
 }
-  
