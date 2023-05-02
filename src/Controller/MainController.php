@@ -23,7 +23,8 @@ class MainController implements ControllerInterface
     #[Route('/')]
     public function index()
     {
-        dd($this->userRepository->getAll());
+        dsqdqs
+        throw new \Exception('erreur jose');
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);
     }
 }

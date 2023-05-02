@@ -22,7 +22,6 @@ function dc($var)
 }
 
 ErrorHandler::initialize();
-throw new Exception('zebi');
 
 $req = Request::getRequest();
 $kernel = new Kernel();
