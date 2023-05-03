@@ -11,10 +11,13 @@ class Constraint
 
     private ?string $message = null;
 
-    public function __construct(string $validator, ?string $message = null)
+    private ?array $ctx = null;
+
+    public function __construct(string $validator, ?string $message = null, array $ctx = [])
     {
         $this->validator = $validator;
         $this->message = $message ?? 'This cannot be empty';
+        $this->ctx = $ctx;
     }
 
     /**
@@ -31,5 +34,13 @@ class Constraint
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * Get the value of context
+     */
+    public function getContext()
+    {
+        return $this->ctx;
     }
 }

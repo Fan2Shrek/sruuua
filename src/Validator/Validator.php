@@ -5,6 +5,7 @@ namespace App\Validator;
 use App\Validator\Exception\SetterNotFoundException;
 use App\Validator\Exception\ValidatorNotFoundException;
 use App\Validator\Interface\ValidatorAwareInterface;
+use App\Validator\Interface\ValidatorConfigurableInterface;
 use App\Validator\Interface\ValidatorInterface;
 use Sruuua\DependencyInjection\Container;
 
@@ -62,7 +63,13 @@ class Validator
                     throw new SetterNotFoundException(sprintf('Getter for %s not found you should create method %s()', $property->getName(), $getter));
                 }
 
-                if (!$this->getValidator($constraint->getValidator())->validate($data->$getter())) {
+                $validator = $this->getValidator($constraint->getValidator());
+
+                if ($validator instanceof ValidatorConfigurableInterface) {
+                    $validator->configure($constraint->getContext());
+                }
+
+                if (!$validator->validate($data->$getter())) {
                     $return[$property->getName()] = $constraint->getMessage();
                 }
             }
