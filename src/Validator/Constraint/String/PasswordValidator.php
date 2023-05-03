@@ -35,6 +35,11 @@ class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInte
             $errors['special'] = $this->context['specialMsg'];
         }
 
+        if (strlen($data) <= $this->context['lenght']) {
+            $isValid = false;
+            $errors['lenght'] = sprintf('Password must be at least %d character long', $this->context['lenght']);
+        }
+
         if ($this->context['multipleMessages']) {
             return $errors;
         }
@@ -66,6 +71,7 @@ class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInte
             'special' => true,
             'numeric' => true,
             'upper' => true,
+            'lenght' => 8,
             'regex' => false,
             'multipleMessages' => false,
             'upperMsg' => 'Password must contains an uppercase',
