@@ -18,15 +18,6 @@ class Validator
 
     private Container $container;
 
-    private function realValidate(mixed $data)
-    {
-        foreach ($this->validators as $validator) {
-            if ($validator->supports($data)) {
-                return $validator->validate($data);
-            }
-        }
-    }
-
     public function __construct(Container $container)
     {
         $this->validators = array();
@@ -73,12 +64,19 @@ class Validator
 
                 $value = $this->trim($value);
 
-                if (!$constraint->canBeBlank() && $value == "") {
+                if (!$constraint->canBeBlank() && $value === "") {
                     $return[$property->getName()] = $constraint->getMessage();
+                } elseif ($constraint->canBeBlank() && $value === "") {
+                    continue;
                 }
 
                 if (isset($constraint->getContext()['multipleMessages']) && $constraint->getContext()['multipleMessages']) {
-                    $return[$property->getName()] = $validator->validate($value);
+                    $validation = $validator->validate($value);
+                    if (is_array($validation)) {
+                        $return[$property->getName()] = $validation;
+                    }
+
+                    continue;
                 }
 
                 if (!$validator->validate($value)) {
@@ -88,8 +86,6 @@ class Validator
         }
 
         return $return;
-
-        throw new ValidatorNotFoundException(sprintf('No validator found for %s', $data::class));
     }
 
     public function hasValidator(string $validatorName): bool

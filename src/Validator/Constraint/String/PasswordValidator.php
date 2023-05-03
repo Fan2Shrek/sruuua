@@ -2,14 +2,10 @@
 
 namespace App\Validator\Constraint\String;
 
-use App\Validator\Exception\OptionNotExist;
-use App\Validator\Interface\ValidatorConfigurableInterface;
-use App\Validator\Interface\ValidatorInterface;
+use App\Validator\Constraint\AbstractConfigurableValidator;
 
-class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInterface
+class PasswordValidator extends AbstractConfigurableValidator
 {
-    private array $context;
-
     public function supports(mixed $data): bool
     {
         return is_string($data);
@@ -17,52 +13,31 @@ class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInte
 
     public function validate(mixed $data): bool|array
     {
-        $isValid = true;
         $errors = array();
 
-        if ($this->context['upper']) {
-            $isValid &= preg_match('/[A-Z]/', $data);
+        if ($this->context['upper'] && !preg_match('/[A-Z]/', $data)) {
             $errors['upper'] = $this->context['upperMsg'];
         }
 
-        if ($this->context['numeric']) {
-            $isValid &= preg_match('/[1-9]/', $data);
+        if ($this->context['numeric'] && !preg_match('/[1-9]/', $data)) {
             $errors['numeric'] = $this->context['numericMsg'];
         }
 
-        if ($this->context['special']) {
-            $isValid &=  preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $data);
+        if ($this->context['special'] && !preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $data)) {
             $errors['special'] = $this->context['specialMsg'];
         }
 
-        if (strlen($data) <= $this->context['lenght']) {
-            $isValid = false;
-            $errors['lenght'] = sprintf('Password must be at least %d character long', $this->context['lenght']);
+        if (strlen($data) < $this->context['lenght']) {
+            $errors['lenght'] = $this->context['lenghtMsg'];
         }
+
+        if (empty($errors)) return true;
 
         if ($this->context['multipleMessages']) {
             return $errors;
         }
 
-        return $isValid;
-    }
-
-    /**
-     * Configure the password parameters
-     */
-    public function configure(array $ctx)
-    {
-        $this->setDefault();
-        foreach ($ctx as $option => $value) {
-            if (!isset($this->context[$option])) {
-                $optList = '';
-                foreach ($this->context as $opt => $a) {
-                    $optList .= $opt . ' ';
-                }
-                throw new OptionNotExist(sprintf("%s class does not have %s option.\nAvailable option are : %s", __CLASS__, $option, $optList));
-            }
-            $this->context[$option] = $value;
-        }
+        return false;
     }
 
     public function setDefault()
@@ -77,6 +52,7 @@ class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInte
             'upperMsg' => 'Password must contains an uppercase',
             'numericMsg' => 'Password must contains an digit',
             'specialMsg' => 'Password must contains an special character',
+            'lenghtMsg' => 'Password must be 8 characters long',
         ];
     }
 }

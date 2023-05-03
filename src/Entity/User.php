@@ -4,17 +4,21 @@ namespace App\Entity;
 
 use App\Validator\Constraint;
 use App\Validator\Constraint\String\EmailValidator;
+use App\Validator\Constraint\Int\IntegerValidator;
 use App\Validator\Constraint\String\PasswordValidator;
+use App\Validator\Constraint\String\StringValidator;
 
 class User
 {
+    #[Constraint(IntegerValidator::class, ctx: ['minValue' => 20, 'maxValue' => 50, 'multipleMessages' => false, 'multipleOf' => 2])]
+    private int $id;
+
     #[Constraint(EmailValidator::class, 'Veuillez remplir l\'email')]
     private string $email;
 
-    #[Constraint(PasswordValidator::class, 'Password non valide', ['multipleMessages' => true, 'upperMsg' => 'Veuillez mettre une majuscule'])]
+    #[Constraint(PasswordValidator::class, 'Mot de passe non valide', ['multipleMessages' => true, 'upperMsg' => 'Veuillez mettre une majuscule', 'numericMsg' => 'Veuillez mettre un nombre'])]
     private string $password;
 
-    private int $id;
 
 
     /**
