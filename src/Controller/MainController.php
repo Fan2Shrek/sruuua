@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Validator\Validator;
+
+use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Trait\TwigTrait;
 use Sruuua\Routing\Interface\ControllerInterface;
@@ -14,16 +17,22 @@ class MainController implements ControllerInterface
 
     private UserRepository $userRepository;
 
-    public function __construct(Environment $twig, UserRepository $userRepository)
+    private Validator $validator;
+
+    public function __construct(Environment $twig, UserRepository $userRepository, Validator $validator)
     {
         $this->twig = $twig;
         $this->userRepository = $userRepository;
+        $this->validator = $validator;
     }
 
     #[Route('/')]
     public function index()
     {
-        dd($this->userRepository->getAll());
+        $user = new User();
+        $user = $user->setId(0)->setEmail('');
+        $rep = $this->validator->validate($user);
+        dd($rep);
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);
     }
 }

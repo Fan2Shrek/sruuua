@@ -2,9 +2,16 @@
 
 namespace App\Entity;
 
+use App\Validator\Constraint;
+use App\Validator\Constraint\String\EmailValidator;
+
 class User
 {
+    #[Constraint(EmailValidator::class, 'Veuillez remplir l\'email')]
+    private string $email;
+
     private int $id;
+
 
     /**
      * @return int
@@ -41,5 +48,4 @@ class User
         $this->email = $email;
         return $this;
     }
-    private string $email;
 }
