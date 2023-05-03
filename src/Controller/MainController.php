@@ -30,7 +30,7 @@ class MainController implements ControllerInterface
     public function index()
     {
         $user = new User();
-        $user = $user->setId(0)->setEmail('')->setPassword('');
+        $user = $user->setId(0)->setEmail('')->setPassword('1A');
         $rep = $this->validator->validate($user);
         dd($rep);
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);

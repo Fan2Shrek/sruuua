@@ -5,13 +5,13 @@ namespace App\Validator\Interface;
 interface ValidatorInterface
 {
     /**
-     * Validate all types of data and return an bool
+     * Validate all types of data and return an bool or array
      * 
      * @param mixed $data
      * 
-     * @return bool
+     * @return bool|array
      */
-    public function validate(mixed $data): bool;
+    public function validate(mixed $data): bool|array;
 
     /**
      * Check if the validator can support a type of data

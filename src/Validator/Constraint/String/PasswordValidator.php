@@ -8,16 +8,38 @@ use App\Validator\Interface\ValidatorInterface;
 
 class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInterface
 {
-    private array $ctx;
+    private array $context;
 
     public function supports(mixed $data): bool
     {
         return is_string($data);
     }
 
-    public function validate(mixed $data): bool
+    public function validate(mixed $data): bool|array
     {
-        return filter_var($data, FILTER_VALIDATE_EMAIL);
+        $isValid = true;
+        $errors = array();
+
+        if ($this->context['upper']) {
+            $isValid &= preg_match('/[A-Z]/', $data);
+            $errors['upper'] = $this->context['upperMsg'];
+        }
+
+        if ($this->context['numeric']) {
+            $isValid &= preg_match('/[1-9]/', $data);
+            $errors['numeric'] = $this->context['numericMsg'];
+        }
+
+        if ($this->context['special']) {
+            $isValid &=  preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $data);
+            $errors['special'] = $this->context['specialMsg'];
+        }
+
+        if ($this->context['multipleMessages']) {
+            return $errors;
+        }
+
+        return $isValid;
     }
 
     /**
@@ -27,24 +49,28 @@ class PasswordValidator implements ValidatorInterface, ValidatorConfigurableInte
     {
         $this->setDefault();
         foreach ($ctx as $option => $value) {
-            if (!isset($this->ctx[$option])) {
+            if (!isset($this->context[$option])) {
                 $optList = '';
-                foreach ($this->ctx as $opt => $a) {
+                foreach ($this->context as $opt => $a) {
                     $optList .= $opt . ' ';
                 }
                 throw new OptionNotExist(sprintf("%s class does not have %s option.\nAvailable option are : %s", __CLASS__, $option, $optList));
             }
-            $this->ctx[$option] = $value;
+            $this->context[$option] = $value;
         }
     }
 
     public function setDefault()
     {
-        $this->ctx = [
+        $this->context = [
             'special' => true,
             'numeric' => true,
             'upper' => true,
             'regex' => false,
+            'multipleMessages' => false,
+            'upperMsg' => 'Password must contains an uppercase',
+            'numericMsg' => 'Password must contains an digit',
+            'specialMsg' => 'Password must contains an special character',
         ];
     }
 }

@@ -11,7 +11,7 @@ class User
     #[Constraint(EmailValidator::class, 'Veuillez remplir l\'email')]
     private string $email;
 
-    #[Constraint(PasswordValidator::class, 'Password non valide', ['upper' => false])]
+    #[Constraint(PasswordValidator::class, 'Password non valide', ['multipleMessages' => false, 'upperMsg' => 'Veuillez mettre une majuscule'])]
     private string $password;
 
     private int $id;

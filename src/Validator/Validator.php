@@ -69,7 +69,19 @@ class Validator
                     $validator->configure($constraint->getContext());
                 }
 
-                if (!$validator->validate($data->$getter())) {
+                $value = $data->$getter();
+
+                $value = $this->trim($value);
+
+                if (!$constraint->canBeBlank() && $value == "") {
+                    $return[$property->getName()] = $constraint->getMessage();
+                }
+
+                if (isset($constraint->getContext()['multipleMessages']) && $constraint->getContext()['multipleMessages']) {
+                    $return[$property->getName()] = $validator->validate($value);
+                }
+
+                if (!$validator->validate($value)) {
                     $return[$property->getName()] = $constraint->getMessage();
                 }
             }
@@ -88,5 +100,14 @@ class Validator
     public function getValidator(string $validatorName): ValidatorInterface
     {
         return $this->validators[$validatorName];
+    }
+
+    public function trim(string $value)
+    {
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = htmlspecialchars($value);
+
+        return $value;
     }
 }

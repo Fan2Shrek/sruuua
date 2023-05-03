@@ -13,11 +13,14 @@ class Constraint
 
     private ?array $ctx = null;
 
-    public function __construct(string $validator, ?string $message = null, array $ctx = [])
+    private bool $canBeBlank;
+
+    public function __construct(string $validator, ?string $message = null, array $ctx = [], bool $canBeBlank = false)
     {
         $this->validator = $validator;
         $this->message = $message ?? 'This cannot be empty';
         $this->ctx = $ctx;
+        $this->canBeBlank = $canBeBlank;
     }
 
     /**
@@ -42,5 +45,13 @@ class Constraint
     public function getContext()
     {
         return $this->ctx;
+    }
+
+    /**
+     * Get the value of canBeBlank
+     */
+    public function canBeBlank(): bool
+    {
+        return $this->canBeBlank;
     }
 }
