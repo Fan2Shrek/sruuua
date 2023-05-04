@@ -7,7 +7,8 @@
         "sruuua/http-basics": "^1.0",
         "sruuua/application": "^1.0.1",
         "sruuua/database": "^1.0",
-        "sruuua/error-handler": "^1.0"
+        "sruuua/error-handler": "^1.0",
+        "sruuua/validator": "^1.0"
     },
     "autoload": {
         "psr-4": {

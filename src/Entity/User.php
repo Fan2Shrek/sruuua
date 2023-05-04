@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Validator\Constraint;
-use App\Validator\Constraint\String\EmailValidator;
-use App\Validator\Constraint\Int\IntegerValidator;
-use App\Validator\Constraint\String\PasswordValidator;
-use App\Validator\Constraint\String\StringValidator;
+use Sruuua\Validator\Constraint;
+use Sruuua\Validator\Constraint\String\EmailValidator;
+use Sruuua\Validator\Constraint\Int\IntegerValidator;
+use Sruuua\Validator\Constraint\String\PasswordValidator;
+use Sruuua\Validator\Constraint\String\StringValidator;
 
 class User
 {

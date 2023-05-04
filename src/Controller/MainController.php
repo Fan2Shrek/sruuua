@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Validator\Validator;
+use Sruuua\Validator\Validator;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -30,7 +30,7 @@ class MainController implements ControllerInterface
     public function index()
     {
         $user = new User();
-        $user = $user->setId(22)->setEmail('g@a.com')->setPassword('1A@sqdqdsqdsqsq');
+        $user = $user->setId(22)->setEmail('g@a.dsqd')->setPassword('1A@sqdqsdqsdqsdsd');
         $rep = $this->validator->validate($user);
         dd($rep);
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);

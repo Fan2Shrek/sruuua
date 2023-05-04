@@ -26,3 +26,22 @@ services:
 
   hydrator:
     class: Sruuua\Database\Hydrator\Hydrator
+
+  # Validators :
+  validator:
+    class: Sruuua\Validator\Validator
+
+  # String :
+  validator.string:
+    class: Sruuua\Validator\Constraint\String\StringValidator
+
+  validator.password:
+    class: Sruuua\Validator\Constraint\String\PasswordValidator
+
+  validator.email:
+      class: Sruuua\Validator\Constraint\String\EmailValidator
+
+  # Int :
+
+  validator.integer:
+    class: Sruuua\Validator\Constraint\Int\IntegerValidator
