@@ -2,6 +2,8 @@
 
 namespace App\EventDispatcher\Interfaces;
 
+use App\EventDispatcher\Listener;
+
 /**
  * Mapper from an event to the listeners that are applicable to that event.
  */
@@ -14,5 +16,7 @@ interface ListenerProviderInterface
      *   An iterable (array, iterator, or generator) of callables.  Each
      *   callable MUST be type-compatible with $event.
      */
-    public function getListenersForEvent(object $event) : iterable;
+    public function getListenersForEvent(object $event): iterable;
+
+    public function addListener(string $eventType, Listener $listener);
 }

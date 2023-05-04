@@ -24,14 +24,9 @@ class EventDispatcher implements EventDispatcherInterface
 
     public function registerListeners()
     {
-        foreach ($this->container->getAllByType() as $listener) {
-            $this->addListener($listener);
+        foreach ($this->container->getAllByType(ListenerInterface::class) as $listener) {
+            $this->listenerProvider->addListener($listener->listen(), $listener);
         }
-    }
-
-    public function addListener(ListenerInterface $listener)
-    {
-        $this->listenerProvider->addListener($listener->listen(), $listener);
     }
 
     public function dispatch(object $event)
