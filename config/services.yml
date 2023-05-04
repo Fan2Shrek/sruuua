@@ -1,10 +1,6 @@
 excludes:
   - '../src/Kernel.php'
   - '../src/Entity/'
-<<<<<<< HEAD
-=======
-  - '../src/Validator/Constraint/AbstractConfigurableValidator.php'
->>>>>>> validator
 
 services:
   loader:
@@ -45,6 +41,5 @@ services:
       class: Sruuua\Validator\Constraint\String\EmailValidator
 
   # Int :
-
   validator.integer:
     class: Sruuua\Validator\Constraint\Int\IntegerValidator
