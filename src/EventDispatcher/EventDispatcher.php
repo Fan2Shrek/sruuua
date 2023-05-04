@@ -5,6 +5,7 @@ namespace App\EventDispatcher;
 use App\EventDispatcher\Interfaces\EventDispatcherInterface;
 use App\EventDispatcher\Interfaces\ListenerInterface;
 use App\EventDispatcher\Interfaces\ListenerProviderInterface;
+use Sruuua\DependencyInjection\Container;
 
 class EventDispatcher implements EventDispatcherInterface
 {
