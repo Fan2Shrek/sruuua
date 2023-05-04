@@ -7,6 +7,7 @@ use Sruuua\Cache\CachePool;
 use Sruuua\Cache\CacheBuilder;
 use Sruuua\DependencyInjection\Container;
 use Sruuua\DependencyInjection\ContainerBuilder;
+use Sruuua\Error\ErrorHandler;
 use Sruuua\HTTPBasics\Request;
 use Sruuua\HTTPBasics\Response\Response;
 use Symfony\Component\Dotenv\Dotenv;
@@ -25,6 +26,8 @@ class Kernel
 
     public function __construct()
     {
+        ErrorHandler::initialize();
+
         $dotenv = new Dotenv();
         $dotenv->load('../.env');
 
