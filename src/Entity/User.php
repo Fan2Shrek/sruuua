@@ -10,16 +10,14 @@ use App\Validator\Constraint\String\StringValidator;
 
 class User
 {
-    #[Constraint(IntegerValidator::class, ctx: ['minValue' => 20, 'maxValue' => 50, 'multipleMessages' => false, 'multipleOf' => 2])]
+    #[Constraint(IntegerValidator::class, 'boloss', ctx: ['minValue' => 20, 'maxValue' => 50, 'multipleMessages' => true, 'multipleOf' => 2])]
     private int $id;
 
-    #[Constraint(EmailValidator::class, 'Veuillez remplir l\'email')]
+    #[Constraint(StringValidator::class, 'Veuillez remplir l\'email', ['regex' => '/[A-Z]/', 'multipleMessages' => false])]
     private string $email;
 
     #[Constraint(PasswordValidator::class, 'Mot de passe non valide', ['multipleMessages' => true, 'upperMsg' => 'Veuillez mettre une majuscule', 'numericMsg' => 'Veuillez mettre un nombre'])]
     private string $password;
-
-
 
     /**
      * @return int

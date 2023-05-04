@@ -15,6 +15,10 @@ class StringValidator extends AbstractConfigurableValidator
     {
         $errors = array();
 
+        if ($this->context['regex']) {
+            return preg_match($this->context['regex'], $data);
+        }
+
         if (strlen($data) < $this->context['minLenght']) {
             $errors['minLenght'] = $this->context['minLenghtMsg'];
         }
@@ -35,11 +39,13 @@ class StringValidator extends AbstractConfigurableValidator
     public function setDefault()
     {
         $this->context = [
+            'regex' => false,
             'minLenght' => 3,
             'maxLenght' => 2048,
             'maxLenghtMsg' => 'This field is too long',
             'minLenghtMsg' => 'This field must be at least 3 characters long',
             'multipleMessages' => false,
+            'regexMsg' => 'This field does not match with accepted value',
         ];
     }
 }

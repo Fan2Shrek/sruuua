@@ -46,13 +46,12 @@ class PasswordValidator extends AbstractConfigurableValidator
             'special' => true,
             'numeric' => true,
             'upper' => true,
-            'lenght' => 8,
-            'regex' => false,
+            'lenght' => 12,
             'multipleMessages' => false,
             'upperMsg' => 'Password must contains an uppercase',
             'numericMsg' => 'Password must contains an digit',
             'specialMsg' => 'Password must contains an special character',
-            'lenghtMsg' => 'Password must be 8 characters long',
+            'lenghtMsg' => 'Password must be 12 characters long',
         ];
     }
 }
