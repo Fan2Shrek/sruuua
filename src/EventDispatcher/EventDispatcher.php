@@ -23,12 +23,13 @@ class EventDispatcher implements EventDispatcherInterface
 
     public function registerListeners()
     {
-        foreach ($this->container->getAllByType() as $listener){
+        foreach ($this->container->getAllByType() as $listener) {
             $this->addListener($listener);
         }
     }
 
-    public function addListener(ListenerInterface $listener){
+    public function addListener(ListenerInterface $listener)
+    {
         $this->listenerProvider->addListener($listener->listen(), $listener);
     }
 
