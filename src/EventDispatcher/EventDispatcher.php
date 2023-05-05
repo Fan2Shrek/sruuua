@@ -5,6 +5,7 @@ namespace App\EventDispatcher;
 use App\EventDispatcher\Interfaces\EventDispatcherInterface;
 use App\EventDispatcher\Interfaces\ListenerInterface;
 use App\EventDispatcher\Interfaces\ListenerProviderInterface;
+use App\EventDispatcher\Interfaces\StoppableEventInterface;
 use Sruuua\DependencyInjection\Container;
 
 class EventDispatcher implements EventDispatcherInterface
@@ -14,7 +15,7 @@ class EventDispatcher implements EventDispatcherInterface
 
     private Container $container;
 
-    public function __construct(ListenerProviderInterface $listenerProvider, Container $container)
+    public function __construct(ListenerProvider $listenerProvider, Container $container)
     {
         $this->listenerProvider = $listenerProvider;
         $this->container = $container;
@@ -31,7 +32,16 @@ class EventDispatcher implements EventDispatcherInterface
 
     public function dispatch(object $event)
     {
-        foreach ($this->listenerProvider->getListenersForEvent($event) as $listener) {
+        $listeners = $this->listenerProvider->getListenersForEvent($event);
+
+        if ($event instanceof StoppableEventInterface) {
+            foreach ($listeners as $listener) {
+                if ($event->isPropagationStopped()) return;
+                $listener($event);
+            }
+        }
+
+        foreach ($listeners as $listener) {
             $listener($event);
         }
     }
