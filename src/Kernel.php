@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\EventDispatcher\Test\TestEvent;
 use Sruuua\Cache\Cache;
 use Sruuua\Cache\CachePool;
 use Sruuua\Cache\CacheBuilder;

@@ -2,7 +2,7 @@
 
 namespace App\EventDispatcher\Interfaces;
 
-use App\EventDispatcher\Listener;
+use App\EventDispatcher\Interfaces\ListenerInterface;
 
 /**
  * Mapper from an event to the listeners that are applicable to that event.
@@ -18,5 +18,5 @@ interface ListenerProviderInterface
      */
     public function getListenersForEvent(object $event): iterable;
 
-    public function addListener(string $eventType, Listener $listener);
+    public function addListener(string $eventType, ListenerInterface $listener);
 }

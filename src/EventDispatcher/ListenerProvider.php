@@ -2,6 +2,7 @@
 
 namespace App\EventDispatcher;
 
+use App\EventDispatcher\Interfaces\ListenerInterface;
 use App\EventDispatcher\Interfaces\ListenerProviderInterface;
 
 class ListenerProvider implements ListenerProviderInterface
@@ -14,13 +15,22 @@ class ListenerProvider implements ListenerProviderInterface
         $this->listeners = array();
     }
 
-    public function addListener(string $eventType, Listener $listener)
+    public function addListener(string $eventType, ListenerInterface $listener)
     {
         $this->listeners[$eventType][] = $listener;
     }
 
     public function getListenersForEvent(object $event): iterable
     {
-        return $this->listeners[$event::class];
+        if ($this->has($event::class)) {
+            return $this->listeners[$event::class];
+        }
+
+        return [];
+    }
+
+    public function has(string $eventType)
+    {
+        return isset($this->listeners[$eventType]);
     }
 }
