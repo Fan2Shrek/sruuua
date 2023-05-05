@@ -49,8 +49,6 @@ class Kernel
 
     public function handle(Request $request)
     {
-        $this->container->get('eventDispatcher')->dispatch(new Event('osez jose'));
-        $this->container->set('request', $request);
         $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
 
         if (null !== $page) {
