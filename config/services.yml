@@ -23,6 +23,15 @@ services:
     arg:
       - '@App\Kernel'
 
+  listenerProvider:
+    class: Sruuua\EventDispatcher\ListenerProvider
+
+  eventDispatcher:
+    class: Sruuua\EventDispatcher\EventDispatcher
+    arg:
+      - '@listenerProvider'
+      - '@container'
+
   hydrator:
     class: Sruuua\Database\Hydrator\Hydrator
 

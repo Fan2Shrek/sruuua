@@ -2,10 +2,11 @@
 
 namespace App;
 
-use App\EventDispatcher\Test\TestEvent;
+use App\Event\Event;
 use Sruuua\Cache\Cache;
 use Sruuua\Cache\CachePool;
 use Sruuua\Cache\CacheBuilder;
+use Sruuua\EventDispatcher\Test\TestEvent;
 use Sruuua\DependencyInjection\Container;
 use Sruuua\DependencyInjection\ContainerBuilder;
 use Sruuua\Error\ErrorHandler;
@@ -48,6 +49,7 @@ class Kernel
 
     public function handle(Request $request)
     {
+        $this->container->get('eventDispatcher')->dispatch(new Event('osez jose'));
         $this->container->set('request', $request);
         $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
 
