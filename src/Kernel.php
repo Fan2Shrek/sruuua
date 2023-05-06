@@ -2,11 +2,10 @@
 
 namespace App;
 
-use App\Event\Event;
+use App\Test\KernelStartEvent;
+use Composer\Autoload\ClassLoader;
 use Sruuua\Cache\Cache;
-use Sruuua\Cache\CachePool;
 use Sruuua\Cache\CacheBuilder;
-use Sruuua\EventDispatcher\Test\TestEvent;
 use Sruuua\DependencyInjection\Container;
 use Sruuua\DependencyInjection\ContainerBuilder;
 use Sruuua\Error\ErrorHandler;
@@ -26,7 +25,7 @@ class Kernel
      */
     private array $env;
 
-    public function __construct()
+    public function __construct(ClassLoader $classLoader)
     {
         ErrorHandler::initialize();
 
@@ -41,15 +40,18 @@ class Kernel
         if ($cachePool->hasItem('container')) {
             $this->container = $cachePool->getItem('container')->get();
         } else {
-            $this->container = (new ContainerBuilder($this))->getContainer();
+            $this->container = (new ContainerBuilder($this, $classLoader))->getContainer();
             $cachePool->save(new Cache('container', $this->container));
         }
+
         $this->container->set('cachePool', $cachePool);
     }
 
     public function handle(Request $request)
     {
-        $page = $this->container->get('router')->getRouter()->getRoute($request->getRequestedPage());
+        $this->container->get("Sruuua\Logger\Logger")->alert('dab');
+        exit();
+        $page = $this->container->get('Sruuua\Routing\RouterBuilder')->getRouter()->getRoute($request->getRequestedPage());
 
         if (null !== $page) {
             $func = $page->getFunction()->getName();

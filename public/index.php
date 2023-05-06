@@ -1,6 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
+$classLoader = require '../vendor/autoload.php';
 
 use App\Kernel;
 use Sruuua\HTTPBasics\Request;
@@ -21,5 +21,5 @@ function dc($var)
 }
 
 $req = Request::getRequest();
-$kernel = new Kernel();
+$kernel = new Kernel($classLoader);
 $kernel->handle($req);

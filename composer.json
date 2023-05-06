@@ -9,7 +9,8 @@
         "sruuua/database": "^1.0",
         "sruuua/error-handler": "^1.0",
         "sruuua/validator": "^1.0",
-        "sruuua/event-dispatcher": "^1.0"
+        "sruuua/event-dispatcher": "^1.0",
+        "sruuua/logger": "^1.0"
     },
     "autoload": {
         "psr-4": {

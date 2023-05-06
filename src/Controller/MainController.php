@@ -29,10 +29,7 @@ class MainController implements ControllerInterface
     #[Route('/')]
     public function index()
     {
-        $user = new User();
-        $user = $user->setId(22)->setEmail('g@a.dsqd')->setPassword('1A@sqdqsdqsdqsdsd');
-        $rep = $this->validator->validate($user);
-        dd($rep);
+        dd($this->userRepository->getALl());
         echo $this->twig->render('index.html.twig', ['message' => 'to sruuua ^^']);
     }
 }
