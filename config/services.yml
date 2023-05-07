@@ -1,6 +1,7 @@
 excludes:
   - '../src/Kernel.php'
   - '../src/Entity/'
+  - '../src/Kernel/BaseKernel.php'
 
 services:
   loader:
