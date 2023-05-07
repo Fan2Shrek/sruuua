@@ -49,8 +49,6 @@ class Kernel
 
     public function handle(Request $request)
     {
-        $this->container->get("Sruuua\Logger\Logger")->alert('dab');
-        exit();
         $page = $this->container->get('Sruuua\Routing\RouterBuilder')->getRouter()->getRoute($request->getRequestedPage());
 
         if (null !== $page) {
