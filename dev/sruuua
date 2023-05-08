@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+
+<?php
+
+$classLoader = require dirname(__DIR__) . '/vendor/autoload.php';
+
+use Sruuua\Application\Application;
+
+$app = new Application($classLoader);
+$app->execute($_SERVER['argv']);
