@@ -1,13 +1,10 @@
 {
     "require": {
         "twig/twig": "^3.5",
-        "symfony/dotenv": "^6.2",
-        "sruuua/cache": "^1.2",
-        "sruuua/http-basics": "^1.0",
-        "sruuua/application": "^1.0.1",
-        "sruuua/database": "^1.0",
-        "sruuua/error-handler": "^1.0",
-        "sruuua/validator": "^1.0"
+        "sruuua/kernel": "^1.1",
+        "sruuua/database": "dev-main",
+        "sruuua/validator": "dev-main",
+        "sruuua/application": "dev-main"
     },
     "autoload": {
         "psr-4": {
