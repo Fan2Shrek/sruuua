@@ -1,0 +1,19 @@
+{
+    "name": "sruuua/database",
+    "description": "Database connection for sruuua framework",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Sruuua\\Database\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Fan2Shrek",
+            "email": "pierre27.ambroise@gmail.com"
+        }
+    ],
+    "require": {
+        "sruuua/cache": "^1.2"
+    }
+}

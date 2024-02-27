@@ -1,0 +1,17 @@
+{
+    "name": "sruuua/logger",
+    "description": "Simple logger",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Sruuua\\Logger\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Fan2Shrek",
+            "email": "pierre27.ambroise@gmail.com"
+        }
+    ],
+    "require": {}
+}

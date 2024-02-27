@@ -8,7 +8,18 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Sruuua\\Application\\": "sruuua/application",
+            "Sruuua\\Cache\\": "sruuua/cache",
+            "Sruuua\\Database\\": "sruuua/database",
+            "Sruuua\\DependencyInjection\\": "sruuua/dependencyInjection",
+            "Sruuua\\Error\\": "sruuua/errorHandler",
+            "Sruuua\\EventDispatcher\\": "sruuua/eventDispatcher",
+            "Sruuua\\HTTPBasics\\": "sruuua/httpBasics",
+            "Sruuua\\Kernel\\": "sruuua/kernel",
+            "Sruuua\\Logger\\": "sruuua/logger",
+            "Sruuua\\Routing\\": "sruuua/routing",
+            "Sruuua\\Validator\\": "sruuua/validator"
         }
     }
 }
